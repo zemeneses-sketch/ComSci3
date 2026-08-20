@@ -1,0 +1,60 @@
+#Activity 4 ILA: Code Tracing Exercise
+#Meneses, Zhoe Azilanne E.
+#9-Lithium
+
+#1.
+def greet_students(name, nChar):
+    for i in range(nChar):
+        print(name[i])
+
+name = input("enter a name:")
+nChar = input("enter any numeric number; ")
+nChar = int(nChar)
+greet_students(name, nChar)
+
+#a. The output that will print is:
+# J
+# o
+# s
+# e
+# p
+
+#b. The output would be "Joseph the dreamer" with each letter in a row, but it will state that it is an error
+#because the string index is out of range
+
+#c. my solution would be
+
+def greet_students(name, nChar):
+    for i in range(min(nChar, len(name))): #it would only get the smaller number so that it would only print the available letters without error
+        print(name[i])
+
+name = input("enter a name:")
+nChar = input("enter any numeric number; ")
+nChar = int(nChar)
+greet_students(name, nChar)
+
+#2.
+# a. the error in the code is the part print(name[0: nChar]) and it is wrong because it only repeats the name stated
+#b. This is how i would fix the code:
+def greet_students(name, nChar):
+    for i in range(nChar, 0, -1): # i changed this so that it would count backwards
+        print(name[0: i])# i changed this too to be the range of i
+
+name = input("enter a name:")
+greet_students(name, len(name))
+
+#3.
+#a. this is the function i would make:
+
+def sum_of_squared(n): # the def
+    sum = 0 #for the total squares
+    for i in range (1, n + 1): # repeats calculation from 1 to n
+        sum = i **2 # solving for the squares and adding them all together
+    return sum # returns the total
+
+n = 0
+while n < 1 or n > 100:
+    n= input("enter a number from 1 too 100:")
+    n= int(n)
+
+print("sum of all squared numbers is ", sum_of_squared(n))
